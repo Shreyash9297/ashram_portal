@@ -186,7 +186,7 @@
     </footer>
 
     <script>
-        //GOOGLE SCRIPT URL
+        // ⚠️ IMPORTANT: REPLACE THIS URL WITH YOUR GOOGLE SCRIPT URL ⚠️
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5ppEFaUgpVcXvqS8hVSjGcXhL0lpGj6thWoO60_r9cRpBqKMu-vOlS9-PJTh5pAK5/exec';
 
         async function fetchData() {
@@ -248,27 +248,22 @@
 
             // 3. RENDER ALL DYNAMIC SETTINGS
             if (data.settings) {
-                // Footer
+                // Footer & Email Link
                 if (data.settings.FooterText) document.getElementById('dynamic-footer').innerHTML = data.settings.FooterText;
-                // Email
                 if (data.settings.SupportEmail) document.getElementById('support-btn').href = `https://mail.google.com/mail/?view=cm&to=${data.settings.SupportEmail}`;
                 
-                // --- NEW DYNAMIC TEXT FIELDS ---
-                // Header
+                // Dynamic Text Fields
                 if (data.settings.HeaderTitle) document.getElementById('header-title').innerText = data.settings.HeaderTitle;
                 if (data.settings.HeaderDesc) document.getElementById('header-desc').innerText = data.settings.HeaderDesc;
-                
-                // Services Section
                 if (data.settings.ServiceTitle) document.getElementById('service-title').innerText = data.settings.ServiceTitle;
                 if (data.settings.ServiceDesc) document.getElementById('service-desc').innerText = data.settings.ServiceDesc;
-
-                // Policies Section
                 if (data.settings.PolicyTitle) document.getElementById('policy-title').innerText = data.settings.PolicyTitle;
                 if (data.settings.PolicyDesc) document.getElementById('policy-desc').innerText = data.settings.PolicyDesc;
-
-                // Help Section
                 if (data.settings.HelpTitle) document.getElementById('help-title').innerText = data.settings.HelpTitle;
                 if (data.settings.HelpDesc) document.getElementById('help-desc').innerText = data.settings.HelpDesc;
+                
+                // NEW: Dynamic Button Text
+                if (data.settings.SupportBtnText) document.getElementById('support-btn').innerText = data.settings.SupportBtnText;
             }
         }
 
