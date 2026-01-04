@@ -66,10 +66,187 @@
         .help-card { background: radial-gradient(circle, #FCE4D6 0%, #fcc696 100%); border-radius: 16px; margin-top: 50px; padding: 30px; text-align: center; }
         .footer { background: var(--text-tertiary); color: white; padding: 30px 0; text-align: center; }
         
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .service-card:nth-child(1) { animation-delay: 0.1s; } .service-card:nth-child(2) { animation-delay: 0.2s; } 
-        
-        @media (max-width: 768px) { .service-grid, .policy-grid { grid-template-columns: 1fr; } .header { background: linear-gradient(30deg, #833C0C, #FAEEE1); } }
+        /* Tablet Responsive Design */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .container {
+                max-width: 95%;
+            }
+            
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .policy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile and Small Tablet Responsive Design */
+        @media (max-width: 768px){
+            .header {
+                background: #833C0C;
+                background: linear-gradient(30deg,rgba(131, 60, 12, 1) 0%, rgba(250, 238, 225, 1) 20%, rgba(250, 238, 225, 1) 80%, rgba(131, 60, 12, 1) 100%);
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 0.95rem;
+                padding: 0 10px;
+            }
+
+            .header-image {
+                height: 90px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 20px 20px 70px 20px;
+                min-height: 220px;
+            }
+
+            .policy-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .policy-card {
+                padding: 24px;
+            }
+
+            .help-card {
+                padding: 32px 20px;
+            }
+
+            .main {
+                padding: 60px 0;
+            }
+
+            .section {
+                margin-bottom: 60px;
+            }
+        }
+
+        /* Small Mobile Responsive Design */
+        @media (max-width: 480px) {
+            .header {
+                background: #833C0C;
+                background: linear-gradient(30deg,rgba(131, 60, 12, 1) 0%, rgba(250, 238, 225, 1) 20%, rgba(250, 238, 225, 1) 80%, rgba(131, 60, 12, 1) 100%);
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .header {
+                padding: 20px 0;
+            }
+
+            .header-image {
+                height: 80px;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+                margin-bottom: 12px;
+            }
+
+            .header p {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+                padding-left: 16px;
+            }
+
+            .section-title::before {
+                height: 30px;
+            }
+
+            .section-subtitle {
+                padding-left: 16px;
+                font-size: 0.95rem;
+            }
+
+            .service-card {
+                padding: 18px 18px 65px 18px;
+                min-height: 200px;
+            }
+
+            .service-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .service-card p {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+                left: 18px;
+                right: 18px;
+                bottom: 18px;
+            }
+            
+            .policy-item h3 {
+                font-size: 0.8rem;
+            }
+
+            .help-card {
+                padding: 24px 16px;
+            }
+
+            .help-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .help-card p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Very Small Mobile */
+        @media (max-width: 360px) {
+            .header {
+                background: #833C0C;
+                background: linear-gradient(30deg,rgba(131, 60, 12, 1) 0%, rgba(250, 238, 225, 1) 20%, rgba(250, 238, 225, 1) 80%, rgba(131, 60, 12, 1) 100%);
+            }
+
+            .header-image {
+                height: 70px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .service-card {
+                padding: 16px 16px 60px 16px;
+                min-height: 180px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -179,4 +356,5 @@
         document.addEventListener('DOMContentLoaded', fetchData);
     </script>
 </body>
+
 </html>
