@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashram Registration Portal</title>
+    <link rel="website icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2d2d2d;
+            --background: #fafafa;
+            --Service-background: #631019;
+            --surface: #ffffff;
+            --text-primary: #631019;
+            --text-secondary: #806d60;
+            --text-tertiary: #833c0c;
+            --border: #e5e7eb;
+            --border-hover: #d1d5db;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--background); color: var(--text-primary); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        .header { background: radial-gradient(circle, rgba(252, 215, 197, 1) 0%, rgba(252, 231, 212, 1) 0%, rgba(240, 226, 218, 1) 24%, rgba(137, 69, 23, 1) 100%, rgba(131, 60, 12, 1) 50%); color: #5e2a29; padding: 25px 0; }
+        .header-content { text-align: center; }
+        .header-image { height: 110px; width: auto; max-width: 100%; }
+        .header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; }
+        .header p { font-size: 1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; font-weight: 600; }
+
+        /* Main */
+        .main { padding: 50px 0; }
+        .section { margin-bottom: 30px; }
+        .section-title { font-size: 1.6rem; font-weight: 800; color: var(--text-tertiary); margin-bottom: 16px; position: relative; padding-left: 20px; }
+        .section-title::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 40px; background: var(--Service-background); }
+        .section-subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 48px; padding-left: 20px; }
+
+        /* Grid */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px; }
+        .service-card { background: #FCE4D6; border-radius: 16px; padding: 30px 30px 80px 30px; box-shadow: var(--shadow); border: 1px solid var(--border); position: relative; overflow: hidden; min-height: 250px; opacity: 0; animation: fadeInUp 0.6s ease forwards; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .service-icon { width: 60px; height: 60px; background: var(--Service-background); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 10px auto 20px auto; padding: 12px; }
+        .service-icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
+        .service-card h3 { font-size: 1.1rem; font-weight: 800; text-align: center; margin-bottom: 12px; }
+        .service-card p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 7px; }
+
+        /* Buttons */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; position: absolute; left: 25px; bottom: 25px; right: 25px; background: var(--Service-background); color: #fff; transition: all 0.2s; }
+        .btn:hover { background: #C65911; transform: translateY(-2px); }
+        .btn2 { display: inline-flex; padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; background: var(--Service-background); color: #fff; }
+        
+        /* Policies */
+        .policy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; background: #FCE4D6; padding: 40px; border-radius: 24px; box-shadow: var(--shadow); }
+        .policy-item { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--text-primary); padding: 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); transition: all 0.3s; }
+        .policy-item:hover { background: rgba(255, 255, 255, 0.6); transform: translateY(-2px); }
+        .policy-icon { width: 48px; height: 48px; background: var(--Service-background); border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 8px; }
+        .policy-icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
+
+        /* Footer & Help */
+        .help-card { background: radial-gradient(circle, #FCE4D6 0%, #fcc696 100%); border-radius: 16px; margin-top: 50px; padding: 30px; text-align: center; }
+        .footer { background: var(--text-tertiary); color: white; padding: 30px 0; text-align: center; }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .service-card:nth-child(1) { animation-delay: 0.1s; } .service-card:nth-child(2) { animation-delay: 0.2s; } 
+        
+        @media (max-width: 768px) { .service-grid, .policy-grid { grid-template-columns: 1fr; } .header { background: linear-gradient(30deg, #833C0C, #FAEEE1); } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="mission.png" alt="SRMD Logo" class="header-image">
+                <h1>Ashram Registration Portal</h1>
+                <p>Use this portal to avail accommodation and other services for invitees and staff in the Ashram.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Select Your Service</h2>
+                <p class="section-subtitle">Click the link to fill the form corresponding to each service.</p>
+                <div class="service-grid" id="service-grid-container">
+                    <p style="text-align: center; grid-column: 1/-1;">Loading services...</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Our Policies</h2>
+                <p class="section-subtitle">Please review our policies.</p>
+                <div class="policy-container">
+                    <div class="policy-grid" id="policy-grid-container">
+                        <p style="text-align: center; grid-column: 1/-1;">Loading policies...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="help-card">
+                    <h3>Need Assistance?</h3>
+                    <p>Send us an e-mail describing your concern.</p>
+                    <a href="#" target="_blank" class="btn2" id="support-btn">E-mail Support</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p id="dynamic-footer">Loading...</p>
+        </div>
+    </footer>
+
+    <script>
+        // REPLACE THIS WITH YOUR GOOGLE SCRIPT URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5ppEFaUgpVcXvqS8hVSjGcXhL0lpGj6thWoO60_r9cRpBqKMu-vOlS9-PJTh5pAK5/exec';
+
+        async function fetchData() {
+            try {
+                const response = await fetch(SCRIPT_URL);
+                const data = await response.json();
+                renderPage(data);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('service-grid-container').innerHTML = '<p style="text-align:center; grid-column: 1/-1;">Unable to load content.</p>';
+            }
+        }
+
+        function renderPage(data) {
+            // Services
+            const serviceContainer = document.getElementById('service-grid-container');
+            serviceContainer.innerHTML = ''; 
+            if (data.services && data.services.length > 0) {
+                data.services.forEach(service => {
+                    const card = document.createElement('div');
+                    card.className = 'service-card';
+                    card.innerHTML = `
+                        <div class="service-icon"><img src="${service.icon}" alt="${service.title}"></div>
+                        <h3>${service.title}</h3>
+                        <p>${service.description}</p>
+                        <a href="${service.link}" target="_blank" class="btn"> ${service.btnText || 'Open'} </a>
+                    `;
+                    serviceContainer.appendChild(card);
+                });
+            } else { serviceContainer.innerHTML = '<p>No services found.</p>'; }
+
+            // Policies
+            const policyContainer = document.getElementById('policy-grid-container');
+            policyContainer.innerHTML = '';
+            if (data.policies) {
+                data.policies.forEach(policy => {
+                    const link = document.createElement('a');
+                    link.className = 'policy-item';
+                    link.href = policy.link;
+                    link.target = "_blank";
+                    link.innerHTML = `
+                        <div class="policy-icon"><img src="${policy.icon}" alt="${policy.title}"></div>
+                        <h3>${policy.title}</h3>
+                    `;
+                    policyContainer.appendChild(link);
+                });
+            }
+
+            // Settings
+            if (data.settings) {
+                if (data.settings.FooterText) document.getElementById('dynamic-footer').innerHTML = data.settings.FooterText;
+                if (data.settings.SupportEmail) document.getElementById('support-btn').href = `mailto:${data.settings.SupportEmail}`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchData);
+    </script>
+</body>
+</html>
