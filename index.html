@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashram Registration Portal</title>
-    <link rel="website icon" href="favicon.ico">
+    <link rel="website icon" href="Web.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* BASE STYLES (Desktop) */
         :root {
             --primary: #1a1a1a;
             --secondary: #2d2d2d;
@@ -24,48 +25,64 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--background); color: var(--text-primary); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        body { font-family: 'Inter', sans-serif; background: var(--background); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         
-        /* Header */
-        .header { background: radial-gradient(circle, rgba(252, 215, 197, 1) 0%, rgba(252, 231, 212, 1) 0%, rgba(240, 226, 218, 1) 24%, rgba(137, 69, 23, 1) 100%, rgba(131, 60, 12, 1) 50%); color: #5e2a29; padding: 25px 0; }
-        .header-content { text-align: center; }
-        .header-image { height: 110px; width: auto; max-width: 100%; }
-        .header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; }
-        .header p { font-size: 1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; font-weight: 600; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* Main */
+        /* Header */
+        .header { background: radial-gradient(circle, rgba(252, 215, 197, 1) 0%, rgba(252, 231, 212, 1) 0%, rgba(240, 226, 218, 1) 24%, rgba(137, 69, 23, 1) 100%, rgba(131, 60, 12, 1) 50%); color: #5e2a29; padding: 25px 0; position: relative; overflow: hidden; }
+        .header-content { position: relative; z-index: 2; text-align: center; }
+        .header-image { height: 110px; width: auto; max-width: 100%; }
+        .header h1 { font-size: 2.20rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.025em; }
+        .header p { font-size: 1rem; opacity: 0.9; color: var(--text-primary); max-width: 600px; margin: 0 auto; font-weight: 600; }
+
+        /* Main Content */
         .main { padding: 50px 0; }
         .section { margin-bottom: 30px; }
-        .section-title { font-size: 1.6rem; font-weight: 800; color: var(--text-tertiary); margin-bottom: 16px; position: relative; padding-left: 20px; }
-        .section-title::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 40px; background: var(--Service-background); }
+        .section-title { font-size: 1.60rem; font-weight: 800; color: var(--text-tertiary); margin-bottom: 16px; position: relative; padding-left: 20px; }
+        .section-title::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 40px; background: var(--Service-background); border-radius: 2px; }
         .section-subtitle { font-size: 1rem; color: var(--text-secondary); margin-bottom: 48px; padding-left: 20px; }
 
-        /* Grid */
+        /* Service Grid */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 48px; }
-        .service-card { background: #FCE4D6; border-radius: 16px; padding: 30px 30px 80px 30px; box-shadow: var(--shadow); border: 1px solid var(--border); position: relative; overflow: hidden; min-height: 250px; opacity: 0; animation: fadeInUp 0.6s ease forwards; }
-        .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .service-card { background: #FCE4D6; border-radius: 16px; padding: 30px 30px 80px 30px; box-shadow: var(--shadow); border: 1px solid var(--border); transition: all 0.3s ease; position: relative; overflow: hidden; min-height: 250px; opacity: 0; animation: fadeInUp 0.6s ease forwards; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 10px; background: var(--Service-background); transform: scaleX(0); transition: transform 0.7s ease; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--border-hover); }
+        .service-card:hover::before { transform: scaleX(1); }
         .service-icon { width: 60px; height: 60px; background: var(--Service-background); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 10px auto 20px auto; padding: 12px; }
         .service-icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
-        .service-card h3 { font-size: 1.1rem; font-weight: 800; text-align: center; margin-bottom: 12px; }
-        .service-card p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 7px; }
+        .service-card h3 { font-size: 1.10rem; font-weight: 800; color: var(--text-primary); margin-bottom: 12px; text-align: center; }
+        .service-card p { color: var(--text-secondary); margin-bottom: 7px; line-height: 1.6; font-size: 0.9rem; }
 
         /* Buttons */
-        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; position: absolute; left: 25px; bottom: 25px; right: 25px; background: var(--Service-background); color: #fff; transition: all 0.2s; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s ease; font-size: 0.875rem; line-height: 1.25rem; position: absolute; left: 25px; bottom: 25px; right: 25px; background: var(--Service-background); color: #ffffff; }
         .btn:hover { background: #C65911; transform: translateY(-2px); }
-        .btn2 { display: inline-flex; padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; background: var(--Service-background); color: #fff; }
-        
-        /* Policies */
-        .policy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; background: #FCE4D6; padding: 40px; border-radius: 24px; box-shadow: var(--shadow); }
-        .policy-item { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--text-primary); padding: 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); transition: all 0.3s; }
-        .policy-item:hover { background: rgba(255, 255, 255, 0.6); transform: translateY(-2px); }
-        .policy-icon { width: 48px; height: 48px; background: var(--Service-background); border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 8px; }
-        .policy-icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
+        .btn2 { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s ease; font-size: 0.875rem; line-height: 1.25rem; background: var(--Service-background); color: #ffffff; }
 
-        /* Footer & Help */
-        .help-card { background: radial-gradient(circle, #FCE4D6 0%, #fcc696 100%); border-radius: 16px; margin-top: 50px; padding: 30px; text-align: center; }
+        /* Policy Grid */
+        .policy-container { max-width: 1200px; margin: 0 auto; }
+        .policy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; background: #FCE4D6; padding: 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+        .policy-item { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--text-primary); padding: 16px; border-radius: 12px; transition: all 0.3s ease; background: rgba(255, 255, 255, 0.721); backdrop-filter: blur(10px); }
+        .policy-item:hover { background: rgba(255, 255, 255, 0.6); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .policy-icon { width: 48px; height: 48px; background: var(--Service-background); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 8px; }
+        .policy-icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
+        .policy-item h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.3; }
+
+        /* Help & Footer */
+        .help-card { background: radial-gradient(circle, #FCE4D6 0%, #fcc696 100%); border-radius: 16px; margin-top: 50px; padding: 30px; text-align: center; border: 1px solid var(--border); }
+        .help-card h3 { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 16px; }
+        .help-card p { color: var(--text-secondary); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
         .footer { background: var(--text-tertiary); color: white; padding: 30px 0; text-align: center; }
-        
+        .footer p { opacity: 100%; font-size: 1.0rem; }
+
+        /* Animations */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .service-card:nth-child(1) { animation-delay: 0.1s; } .service-card:nth-child(2) { animation-delay: 0.2s; } .service-card:nth-child(3) { animation-delay: 0.3s; }
+
+        /* ----------------------------------------------------------- */
+        /* YOUR RESPONSIVE CODE START HERE */
+        /* ----------------------------------------------------------- */
+
         /* Tablet Responsive Design */
         @media (max-width: 1024px) and (min-width: 769px) {
             .container {
@@ -253,7 +270,7 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <img src="mission.png" alt="SRMD Logo" class="header-image">
+                <img src="Mission Logo Dark_Cc_Dec 2018-02.png" alt="SRMD Logo" class="header-image">
                 <h1>Ashram Registration Portal</h1>
                 <p>Use this portal to avail accommodation and other services for invitees and staff in the Ashram.</p>
             </div>
@@ -266,16 +283,16 @@
                 <h2 class="section-title">Select Your Service</h2>
                 <p class="section-subtitle">Click the link to fill the form corresponding to each service.</p>
                 <div class="service-grid" id="service-grid-container">
-                    <p style="text-align: center; grid-column: 1/-1;">Loading services...</p>
+                    <p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">Loading services...</p>
                 </div>
             </section>
 
             <section class="section">
                 <h2 class="section-title">Our Policies</h2>
-                <p class="section-subtitle">Please review our policies.</p>
+                <p class="section-subtitle">Please review our policies to ensure a respectful and harmonious experience at the Ashram.</p>
                 <div class="policy-container">
                     <div class="policy-grid" id="policy-grid-container">
-                        <p style="text-align: center; grid-column: 1/-1;">Loading policies...</p>
+                        <p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">Loading policies...</p>
                     </div>
                 </div>
             </section>
@@ -283,8 +300,8 @@
             <section class="section">
                 <div class="help-card">
                     <h3>Need Assistance?</h3>
-                    <p>Send us an e-mail describing your concern.</p>
-                    <a href="#" target="_blank" class="btn2" id="support-btn">E-mail Support</a>
+                    <p>Send us an e-mail describing your concern and we will get back to you as soon as possible.</p>
+                    <a href="https://mail.google.com/mail/?view=cm&to=admin.registration@sradharampur.org" target="_blank" class="btn2 btn-primary" id="support-btn">E-mail Support</a>
                 </div>
             </section>
         </div>
@@ -297,64 +314,82 @@
     </footer>
 
     <script>
-        // REPLACE THIS WITH YOUR GOOGLE SCRIPT URL
+        // ⚠️ IMPORTANT: REPLACE THIS URL WITH YOUR GOOGLE SCRIPT URL ⚠️
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5ppEFaUgpVcXvqS8hVSjGcXhL0lpGj6thWoO60_r9cRpBqKMu-vOlS9-PJTh5pAK5/exec';
 
         async function fetchData() {
             try {
+                // Fetch data from the Google Sheet
                 const response = await fetch(SCRIPT_URL);
                 const data = await response.json();
                 renderPage(data);
             } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('service-grid-container').innerHTML = '<p style="text-align:center; grid-column: 1/-1;">Unable to load content.</p>';
+                console.error('Error fetching data:', error);
+                document.getElementById('service-grid-container').innerHTML = '<p style="text-align:center">Unable to load content. Please try again later.</p>';
             }
         }
 
         function renderPage(data) {
-            // Services
+            // 1. Render Services
             const serviceContainer = document.getElementById('service-grid-container');
             serviceContainer.innerHTML = ''; 
+
             if (data.services && data.services.length > 0) {
                 data.services.forEach(service => {
                     const card = document.createElement('div');
                     card.className = 'service-card';
                     card.innerHTML = `
-                        <div class="service-icon"><img src="${service.icon}" alt="${service.title}"></div>
+                        <div class="service-icon">
+                            <img src="${service.icon}" alt="${service.title}">
+                        </div>
                         <h3>${service.title}</h3>
                         <p>${service.description}</p>
-                        <a href="${service.link}" target="_blank" class="btn"> ${service.btnText || 'Open'} </a>
+                        <a href="${service.link}" target="_blank" class="btn btn-primary">${service.btnText}</a>
                     `;
                     serviceContainer.appendChild(card);
                 });
-            } else { serviceContainer.innerHTML = '<p>No services found.</p>'; }
+            } else {
+                serviceContainer.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">No services available at this time.</p>';
+            }
 
-            // Policies
+            // 2. Render Policies
             const policyContainer = document.getElementById('policy-grid-container');
-            policyContainer.innerHTML = '';
-            if (data.policies) {
+            policyContainer.innerHTML = ''; 
+
+            if (data.policies && data.policies.length > 0) {
                 data.policies.forEach(policy => {
                     const link = document.createElement('a');
-                    link.className = 'policy-item';
                     link.href = policy.link;
                     link.target = "_blank";
+                    link.className = 'policy-item';
                     link.innerHTML = `
-                        <div class="policy-icon"><img src="${policy.icon}" alt="${policy.title}"></div>
+                        <div class="policy-icon">
+                            <img src="${policy.icon}" alt="${policy.title}">
+                        </div>
                         <h3>${policy.title}</h3>
                     `;
                     policyContainer.appendChild(link);
                 });
+            } else {
+                 policyContainer.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">No policies available.</p>';
             }
 
-            // Settings
-            if (data.settings) {
-                if (data.settings.FooterText) document.getElementById('dynamic-footer').innerHTML = data.settings.FooterText;
-                if (data.settings.SupportEmail) document.getElementById('support-btn').href = `mailto:${data.settings.SupportEmail}`;
+            // 3. Render Footer Settings
+            const footerElement = document.getElementById('dynamic-footer');
+            if (data.settings && data.settings.FooterText) {
+                footerElement.innerHTML = data.settings.FooterText;
+            } else {
+                footerElement.innerHTML = '&copy; 2025 Made with ❤️ for His Mission - Ashram Registration Team';
+            }
+
+            // 4. Update Email Support Link
+            const supportBtn = document.getElementById('support-btn');
+            if (data.settings && data.settings.SupportEmail) {
+                supportBtn.href = `https://mail.google.com/mail/?view=cm&to=${data.settings.SupportEmail}`;
             }
         }
 
         document.addEventListener('DOMContentLoaded', fetchData);
     </script>
 </body>
-
 </html>
