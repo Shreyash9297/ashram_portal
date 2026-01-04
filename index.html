@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashram Registration Portal</title>
-    <link rel="website icon" href="Web.png">
+    <link rel="website icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -80,189 +80,61 @@
         .service-card:nth-child(1) { animation-delay: 0.1s; } .service-card:nth-child(2) { animation-delay: 0.2s; } .service-card:nth-child(3) { animation-delay: 0.3s; }
 
         /* ----------------------------------------------------------- */
-        /* YOUR RESPONSIVE CODE START HERE */
+        /* RESPONSIVE CODE */
         /* ----------------------------------------------------------- */
 
         /* Tablet Responsive Design */
         @media (max-width: 1024px) and (min-width: 769px) {
-            .container {
-                max-width: 95%;
-            }
-            
-            .service-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            
-            .policy-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .container { max-width: 95%; }
+            .service-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .policy-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         /* Mobile and Small Tablet Responsive Design */
         @media (max-width: 768px){
-            .header {
-                background: #833C0C;
-                background: linear-gradient(30deg,rgba(131, 60, 12, 1) 0%, rgba(250, 238, 225, 1) 20%, rgba(250, 238, 225, 1) 80%, rgba(131, 60, 12, 1) 100%);
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .header p {
-                font-size: 0.95rem;
-                padding: 0 10px;
-            }
-
-            .header-image {
-                height: 90px;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .service-card {
-                padding: 20px 20px 70px 20px;
-                min-height: 220px;
-            }
-
-            .policy-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .policy-card {
-                padding: 24px;
-            }
-
-            .help-card {
-                padding: 32px 20px;
-            }
-
-            .main {
-                padding: 60px 0;
-            }
-
-            .section {
-                margin-bottom: 60px;
-            }
+            .header { background: #833C0C; background: linear-gradient(30deg,rgba(131, 60, 12, 1) 0%, rgba(250, 238, 225, 1) 20%, rgba(250, 238, 225, 1) 80%, rgba(131, 60, 12, 1) 100%); }
+            .header h1 { font-size: 2rem; }
+            .header p { font-size: 0.95rem; padding: 0 10px; }
+            .header-image { height: 90px; }
+            .section-title { font-size: 1.5rem; }
+            .section-subtitle { font-size: 1rem; }
+            .service-grid { grid-template-columns: 1fr; gap: 20px; }
+            .service-card { padding: 20px 20px 70px 20px; min-height: 220px; }
+            .policy-grid { grid-template-columns: 1fr; gap: 20px; }
+            .policy-card { padding: 24px; }
+            .help-card { padding: 32px 20px; }
+            .main { padding: 60px 0; }
+            .section { margin-bottom: 60px; }
         }
 
         /* Small Mobile Responsive Design */
         @media (max-width: 480px) {
-            .header {
-                background: #833C0C;
-                background: linear-gradient(30deg,rgba(131, 60, 12, 1) 0%, rgba(250, 238, 225, 1) 20%, rgba(250, 238, 225, 1) 80%, rgba(131, 60, 12, 1) 100%);
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-
-            .header {
-                padding: 20px 0;
-            }
-
-            .header-image {
-                height: 80px;
-            }
-
-            .header h1 {
-                font-size: 1.75rem;
-                margin-bottom: 12px;
-            }
-
-            .header p {
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 1.4rem;
-                padding-left: 16px;
-            }
-
-            .section-title::before {
-                height: 30px;
-            }
-
-            .section-subtitle {
-                padding-left: 16px;
-                font-size: 0.95rem;
-            }
-
-            .service-card {
-                padding: 18px 18px 65px 18px;
-                min-height: 200px;
-            }
-
-            .service-card h3 {
-                font-size: 1.1rem;
-            }
-
-            .service-card p {
-                font-size: 0.9rem;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.8rem;
-                left: 18px;
-                right: 18px;
-                bottom: 18px;
-            }
-            
-            .policy-item h3 {
-                font-size: 0.8rem;
-            }
-
-            .help-card {
-                padding: 24px 16px;
-            }
-
-            .help-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .help-card p {
-                font-size: 0.9rem;
-            }
+            .header { background: #833C0C; background: linear-gradient(30deg,rgba(131, 60, 12, 1) 0%, rgba(250, 238, 225, 1) 20%, rgba(250, 238, 225, 1) 80%, rgba(131, 60, 12, 1) 100%); }
+            .container { padding: 0 16px; }
+            .header { padding: 20px 0; }
+            .header-image { height: 80px; }
+            .header h1 { font-size: 1.75rem; margin-bottom: 12px; }
+            .header p { font-size: 0.9rem; }
+            .section-title { font-size: 1.4rem; padding-left: 16px; }
+            .section-title::before { height: 30px; }
+            .section-subtitle { padding-left: 16px; font-size: 0.95rem; }
+            .service-card { padding: 18px 18px 65px 18px; min-height: 200px; }
+            .service-card h3 { font-size: 1.1rem; }
+            .service-card p { font-size: 0.9rem; }
+            .btn { padding: 10px 20px; font-size: 0.8rem; left: 18px; right: 18px; bottom: 18px; }
+            .policy-item h3 { font-size: 0.8rem; }
+            .help-card { padding: 24px 16px; }
+            .help-card h3 { font-size: 1.3rem; }
+            .help-card p { font-size: 0.9rem; }
         }
 
         /* Very Small Mobile */
         @media (max-width: 360px) {
-            .header {
-                background: #833C0C;
-                background: linear-gradient(30deg,rgba(131, 60, 12, 1) 0%, rgba(250, 238, 225, 1) 20%, rgba(250, 238, 225, 1) 80%, rgba(131, 60, 12, 1) 100%);
-            }
-
-            .header-image {
-                height: 70px;
-            }
-            
-            .header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .service-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            
-            .service-card {
-                padding: 16px 16px 60px 16px;
-                min-height: 180px;
-            }
+            .header { background: #833C0C; background: linear-gradient(30deg,rgba(131, 60, 12, 1) 0%, rgba(250, 238, 225, 1) 20%, rgba(250, 238, 225, 1) 80%, rgba(131, 60, 12, 1) 100%); }
+            .header-image { height: 70px; }
+            .header h1 { font-size: 1.5rem; }
+            .service-grid { grid-template-columns: 1fr; gap: 16px; }
+            .service-card { padding: 16px 16px 60px 16px; min-height: 180px; }
         }
     </style>
 </head>
@@ -271,8 +143,8 @@
         <div class="container">
             <div class="header-content">
                 <img src="mission.png" alt="SRMD Logo" class="header-image">
-                <h1>Ashram Registration Portal</h1>
-                <p>Use this portal to avail accommodation and other services for invitees and staff in the Ashram.</p>
+                <h1 id="header-title">Ashram Registration Portal</h1>
+                <p id="header-desc">Use this portal to avail accommodation and other services for invitees and staff in the Ashram.</p>
             </div>
         </div>
     </header>
@@ -280,16 +152,16 @@
     <main class="main">
         <div class="container">
             <section class="section">
-                <h2 class="section-title">Select Your Service</h2>
-                <p class="section-subtitle">Click the link to fill the form corresponding to each service.</p>
+                <h2 class="section-title" id="service-title">Select Your Service</h2>
+                <p class="section-subtitle" id="service-desc">Click the link to fill the form corresponding to each service.</p>
                 <div class="service-grid" id="service-grid-container">
                     <p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">Loading services...</p>
                 </div>
             </section>
 
             <section class="section">
-                <h2 class="section-title">Our Policies</h2>
-                <p class="section-subtitle">Please review our policies to ensure a respectful and harmonious experience at the Ashram.</p>
+                <h2 class="section-title" id="policy-title">Our Policies</h2>
+                <p class="section-subtitle" id="policy-desc">Please review our policies to ensure a respectful and harmonious experience at the Ashram.</p>
                 <div class="policy-container">
                     <div class="policy-grid" id="policy-grid-container">
                         <p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">Loading policies...</p>
@@ -299,8 +171,8 @@
 
             <section class="section">
                 <div class="help-card">
-                    <h3>Need Assistance?</h3>
-                    <p>Send us an e-mail describing your concern and we will get back to you as soon as possible.</p>
+                    <h3 id="help-title">Need Assistance?</h3>
+                    <p id="help-desc">Send us an e-mail describing your concern and we will get back to you as soon as possible.</p>
                     <a href="https://mail.google.com/mail/?view=cm&to=admin.registration@sradharampur.org" target="_blank" class="btn2 btn-primary" id="support-btn">E-mail Support</a>
                 </div>
             </section>
@@ -314,7 +186,7 @@
     </footer>
 
     <script>
-        // ⚠️ IMPORTANT: REPLACE THIS URL WITH YOUR GOOGLE SCRIPT URL ⚠️
+        //GOOGLE SCRIPT URL
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5ppEFaUgpVcXvqS8hVSjGcXhL0lpGj6thWoO60_r9cRpBqKMu-vOlS9-PJTh5pAK5/exec';
 
         async function fetchData() {
@@ -330,7 +202,7 @@
         }
 
         function renderPage(data) {
-            // 1. Render Services
+            // 1. RENDER SERVICES
             const serviceContainer = document.getElementById('service-grid-container');
             serviceContainer.innerHTML = ''; 
 
@@ -349,10 +221,10 @@
                     serviceContainer.appendChild(card);
                 });
             } else {
-                serviceContainer.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">No services available at this time.</p>';
+                serviceContainer.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">No services available.</p>';
             }
 
-            // 2. Render Policies
+            // 2. RENDER POLICIES
             const policyContainer = document.getElementById('policy-grid-container');
             policyContainer.innerHTML = ''; 
 
@@ -374,18 +246,29 @@
                  policyContainer.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">No policies available.</p>';
             }
 
-            // 3. Render Footer Settings
-            const footerElement = document.getElementById('dynamic-footer');
-            if (data.settings && data.settings.FooterText) {
-                footerElement.innerHTML = data.settings.FooterText;
-            } else {
-                footerElement.innerHTML = '&copy; 2025 Made with ❤️ for His Mission - Ashram Registration Team';
-            }
+            // 3. RENDER ALL DYNAMIC SETTINGS
+            if (data.settings) {
+                // Footer
+                if (data.settings.FooterText) document.getElementById('dynamic-footer').innerHTML = data.settings.FooterText;
+                // Email
+                if (data.settings.SupportEmail) document.getElementById('support-btn').href = `https://mail.google.com/mail/?view=cm&to=${data.settings.SupportEmail}`;
+                
+                // --- NEW DYNAMIC TEXT FIELDS ---
+                // Header
+                if (data.settings.HeaderTitle) document.getElementById('header-title').innerText = data.settings.HeaderTitle;
+                if (data.settings.HeaderDesc) document.getElementById('header-desc').innerText = data.settings.HeaderDesc;
+                
+                // Services Section
+                if (data.settings.ServiceTitle) document.getElementById('service-title').innerText = data.settings.ServiceTitle;
+                if (data.settings.ServiceDesc) document.getElementById('service-desc').innerText = data.settings.ServiceDesc;
 
-            // 4. Update Email Support Link
-            const supportBtn = document.getElementById('support-btn');
-            if (data.settings && data.settings.SupportEmail) {
-                supportBtn.href = `https://mail.google.com/mail/?view=cm&to=${data.settings.SupportEmail}`;
+                // Policies Section
+                if (data.settings.PolicyTitle) document.getElementById('policy-title').innerText = data.settings.PolicyTitle;
+                if (data.settings.PolicyDesc) document.getElementById('policy-desc').innerText = data.settings.PolicyDesc;
+
+                // Help Section
+                if (data.settings.HelpTitle) document.getElementById('help-title').innerText = data.settings.HelpTitle;
+                if (data.settings.HelpDesc) document.getElementById('help-desc').innerText = data.settings.HelpDesc;
             }
         }
 
